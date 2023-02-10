@@ -48,8 +48,10 @@ final class EntryFilesTwigExtension extends AbstractExtension
             ->getCssFiles($entryName);
     }
 
-    public function renderWebpackScriptTags(string $entryName, string $packageName = null, string $entrypointName = '_default', array $attributes = []): string
+    public function renderWebpackScriptTags(string $entryName, string $packageName = null, $entrypointName = 'jsAppsConfig', array $attributes = []): string
     {
+        $entrypointName = $entrypointName ?: 'jsAppsConfig';
+
         return $this->getTagRenderer()
             ->renderWebpackScriptTags($entryName, $packageName, $entrypointName, $attributes);
     }
